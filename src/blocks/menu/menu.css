@@ -1,0 +1,9 @@
+@import './__item/menu__item.css';
+@import './__button/menu__button.css';
+@import './__link/menu__link.css';
+
+.menu {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+}

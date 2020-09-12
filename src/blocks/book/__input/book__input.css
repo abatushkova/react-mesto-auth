@@ -1,0 +1,12 @@
+.book__input {
+  width: 100%;
+  padding: .5rem 0;
+  margin-bottom: 1.5rem;
+  border: 0;
+  box-sizing: border-box;
+  border-bottom: 2px solid #ccc;
+  background-color: transparent;
+  color: #fff;
+  font: 14px/17px "InterMedium", Arial, sans-serif;
+  font-weight: 500;
+}

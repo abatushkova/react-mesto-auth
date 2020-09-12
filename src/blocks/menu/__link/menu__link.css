@@ -1,0 +1,14 @@
+.menu__link {
+  text-decoration: none;
+  opacity: 1;
+  transition: opacity .1s cubic-bezier(0,0,.2,1) 0s;
+}
+
+.menu__link:focus,
+.menu__link:hover {
+  opacity: .6;
+}
+
+.menu__link:active {
+  opacity: .4;
+}

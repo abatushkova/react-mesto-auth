@@ -1,0 +1,17 @@
+.book__link {
+  margin-top: 1rem;
+  color: #fff;
+  font: 14px/17px "Inter", Arial, sans-serif;
+  text-decoration: none;
+  opacity: 1;
+  transition: opacity .1s cubic-bezier(0,0,.2,1) 0s;
+}
+
+.book__link:focus,
+.book__link:hover {
+  opacity: .6;
+}
+
+.book__link:active {
+  opacity: .4;
+}

@@ -11,11 +11,14 @@
 @import './__img-wrapper/popup__img-wrapper.css';
 @import './__img/popup__img.css';
 @import './__img-title/popup__img-title.css';
+@import './__info-sign/popup__info-sign.css';
+@import './__info-title/popup__info-title.css';
 
 .popup {
   position: fixed;
   top: 0;
   left: 0;
+  z-index: 1;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

@@ -1,0 +1,16 @@
+@import './__title/book__title.css';
+@import './__form/book__form.css';
+@import './__input/book__input.css';
+@import './__link/book__link.css';
+@import './__button/book__button.css';
+
+.book {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  max-width: 22.375rem;
+  height: calc(100vh - 270px);
+  margin: 3.75rem auto 0;
+}
