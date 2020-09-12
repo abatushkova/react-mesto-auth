@@ -1,0 +1,35 @@
+.profile__edit-btn {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  width: 1.125rem;
+  height: 1.125rem;
+  padding: 0;
+  margin-left: 0.5rem;
+  border: 0;
+  background-image: url(../../../images/profile/__edit-btn/editor.svg);
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 1;
+  transition: opacity .1s cubic-bezier(.0,.0,.2,1) 0s;
+  will-change: opacity;
+  cursor: pointer;
+}
+
+.profile__edit-btn:focus,
+.profile__edit-btn:hover {
+  opacity: .6;
+}
+
+.profile__edit-btn:active {
+  opacity: .4;
+}
+
+@media screen and (min-width: 768px) {
+  .profile__edit-btn {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-left: 1rem;
+  }  
+}  

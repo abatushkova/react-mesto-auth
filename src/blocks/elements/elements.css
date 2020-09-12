@@ -1,0 +1,25 @@
+@import './__item/elements__item.css';
+@import './__img/elements__img.css';
+@import './__info/elements__info.css';
+@import './__title/elements__title.css';
+@import './__like/elements__like.css';
+@import './__like-counter/elements__like-counter.css';
+@import './__like-btn/elements__like-btn.css';
+@import './__like-btn/_active/elements__like-btn_active.css';
+@import './__delete-btn/elements__delete-btn.css';
+
+.elements {
+  display: -ms-grid;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(13.75rem, auto));
+  grid-auto-rows: minmax(22.5625rem, 1fr);
+  grid-auto-flow: dense;
+  gap: 1.25rem 1.125rem;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+  max-width: 55.125rem;
+  margin: 0 auto;
+  font-size: 0;
+}

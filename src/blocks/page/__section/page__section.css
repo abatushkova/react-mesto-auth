@@ -1,0 +1,4 @@
+.page__section {
+  width: calc(100% - 2.375rem);
+  max-width: 55.125rem;
+}

@@ -1,0 +1,27 @@
+.elements__delete-btn {
+  position: absolute;
+  top: 1rem;
+  right: .75rem;
+  display: block;
+  width: 1.5rem;
+  height: 1.5rem;
+  padding: 0;
+  border: 0;
+  background-image: url(../../../images/elements/__delete-btn/delete.svg);
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-size: 1.125rem 1.25rem;
+  background-position: 50% 50%;
+  opacity: 1;
+  transition: opacity .1s cubic-bezier(.0,.0,.2,1) 0s;
+  cursor: pointer;
+}
+
+.elements__delete-btn:focus,
+.elements__delete-btn:hover {
+  opacity: .6;
+}
+
+.elements__delete-btn:active {
+  opacity: .4;
+}
