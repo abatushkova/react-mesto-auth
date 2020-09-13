@@ -1,0 +1,31 @@
+@import './__item/menu__item.css';
+@import './__button/menu__button.css';
+
+.menu {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  border-bottom: 1px solid rgba(84, 84, 84, .7);
+  height: auto;
+  max-height: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: max-height .12s ease-in-out 0s,
+    opacity .12s ease-in-out 0s,
+    visibility .12s ease-in-out 0s;
+}
+
+@media screen and (min-width: 768px) {
+  .menu {
+    flex-direction: row;
+    width: auto;
+    max-height: none;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    opacity: 1;
+    visibility: visible;
+  }
+}

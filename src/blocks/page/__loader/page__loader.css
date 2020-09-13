@@ -1,0 +1,6 @@
+.page__loader {
+  width: 3rem;
+  height: 3px;
+  margin: 0 auto;
+  background-image: url(../../../images/page/__loader/oval.svg);
+}

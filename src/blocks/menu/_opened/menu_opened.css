@@ -1,0 +1,19 @@
+.menu_opened {
+  max-height: 117px;
+  margin-bottom: 1.5rem;
+  padding-bottom: 2.5rem;
+  opacity: 1;
+  visibility: visible;
+  transition: max-height .25s ease-in-out 0s,
+    opacity .25s ease-in-out 0s,
+    visibility .25s ease-in-out 0s;
+  will-change: opacity;
+}
+
+@media screen and (min-width: 768px) {
+  .menu {
+    max-height: none;
+    margin: 0;
+    padding: 0;
+  }
+}
