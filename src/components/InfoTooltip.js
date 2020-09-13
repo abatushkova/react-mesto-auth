@@ -6,7 +6,7 @@ function InfoTooltip({ infoData, isOpen, onClose }) {
   return ((isOpen)
     ? <div className={`popup popup_type_info popup_opened`}>
         <PopupContainer
-          className="popup__container"
+          className="popup__container popup__container_type_info"
           closeHandler={onClose}
         >
           <img

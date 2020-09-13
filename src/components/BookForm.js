@@ -19,7 +19,9 @@ function BookForm ({
         noValidate
         onSubmit={onSubmit}
       >
-        {children}
+        <div className="book__content">
+          {children}
+        </div>
         <button type="submit" className="book__button">{buttonText}</button>
       </form>
       <Link to={path} className="book__link">{link}</Link>

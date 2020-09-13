@@ -3,7 +3,6 @@ import { useHistory } from 'react-router-dom';
 import BookForm from './BookForm';
 import Header from './Header';
 import InfoTooltip from './InfoTooltip';
-import success from '../images/popup/__info-sign/success.svg';
 import fail from '../images/popup/__info-sign/fail.svg';
 
 const Register = ({ onRegister, isOpen, onClose }) => {
@@ -17,21 +16,17 @@ const Register = ({ onRegister, isOpen, onClose }) => {
 
     onRegister({ email, password })
       .then((res) => {
-        // console.log(res);
         if (res) {
-          history.push('/signin');
-          return setInfoData({
-            text: "Вы успешно зарегистрировались!",
-            alt: "Успешно",
-            src: success
-          });
+          return history.push('/signin');
         }
 
-        return setInfoData({
+        setEmail('');
+        setPassword('');
+        setInfoData({
           text: "Что-то пошло не так! Попробуйте ещё раз.",
           alt: "Ошибка",
           src: fail
-        })
+        });
       })
       .catch((err) => console.error(err));
   }

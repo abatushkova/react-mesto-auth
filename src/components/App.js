@@ -13,7 +13,7 @@ import EditAvatarPopup from './EditAvatarPopup';
 import AddCardPopup from './AddCardPopup';
 import ConfirmPopup from './ConfirmPopup';
 import ImagePopup from './ImagePopup';
-import * as auth from '../auth';
+import * as auth from '../utils/auth';
 import { api } from '../utils/api';
 import { CurrentUserContext } from '../contexts/CurrentUserContext';
 import ProtectedRoute from './ProtectedRoute';
@@ -32,13 +32,32 @@ const App = () => {
   const [cards, setCards] = useState([]);
   const [loggedIn, setLoggedIn] = useState(false);
   const [email, setEmail] = useState('');
+  const [isSignup, setIsSignup] = useState(false);
   const history = useHistory();
 
   useEffect(() => {
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    checkToken();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [loggedIn]);
+    let isMounted = true;
+
+    if (localStorage.getItem('token')) {
+    const token = localStorage.getItem('token');
+
+    console.log(token);
+    auth.getContent(token)
+      .then((res) => {
+        if (res && isMounted) {
+          console.log(res);
+          setEmail(res.data.email);
+          setLoggedIn(true);
+          history.push('/');
+        }
+
+        return;
+      })
+      .catch((err) => console.error(err));
+    }
+
+    return () => isMounted = false;
+  }, [loggedIn, history]);
 
   useEffect(() => {
     api.getUserInfo()
@@ -57,13 +76,12 @@ const App = () => {
       .then((res) => {
         if (res && res.token) {
           setLoggedIn(true);
-          checkToken();
           history.push('/');
           return true;
-        } else {
-          setIsInfoTooltipOpen(true);
-          // return false;
         }
+
+        setIsInfoTooltipOpen(true);
+        return false;
       })
       .catch((err) => console.error(err));
   };
@@ -71,12 +89,13 @@ const App = () => {
   const onRegister = ({ email, password }) => {
     return auth.register({ email, password })
       .then((res) => {
-        // console.log(res.status);
-        setIsInfoTooltipOpen(true);
         if (res.status !== 400) {
+          setIsSignup(true);
+          setIsInfoTooltipOpen(true);
           return true;
         }
 
+        setIsInfoTooltipOpen(true);
         return false;
       })
       .catch((err) => console.error(err));
@@ -85,23 +104,6 @@ const App = () => {
   const onSignOut = () => {
     localStorage.removeItem('token');
     history.push('/signin');
-  };
-
-  const checkToken = () => {
-    if (localStorage.getItem('token')) {
-      const token = localStorage.getItem('token');
-      console.log('hello token');
-
-      auth.getContent(token).then((res) => {
-        if (res) {
-          setEmail(res.data.email);
-          setLoggedIn(true);
-          history.push('/');
-        } else {
-          throw new Error('Token: something wrong')
-        }
-      });
-    }
   };
 
   const handleEditAvatarClick = () => {
@@ -244,6 +246,7 @@ const App = () => {
         </ProtectedRoute>
         <Route path="/signin">
           <Login
+            isSignup={isSignup}
             onLogin={onLogin}
             isOpen={isInfoTooltipOpen}
             onClose={closeAllPopups}

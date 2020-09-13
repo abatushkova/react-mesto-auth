@@ -10,14 +10,8 @@ export const register = ({ password, email }) => {
     body: JSON.stringify({password, email})
   })
   .then((res) => {
-    // console.log(res);
     return res;
   })
-  // .then((data) => {
-  //   console.log(data.status);
-  //   console.log(data.message);
-  //   return data
-  // })
   .catch((err) => console.error(err));
 };
 
@@ -32,13 +26,12 @@ export const login = ({ email, password }) => {
   })
   .then((res) => res.json())
   .then((data) => {
-    // console.log(data);
     if (data.token) {
       localStorage.setItem('token', data.token);
       return data;
     }
   })
-  .catch(err => console.error(err))
+  .catch(err => console.error(err));
 };
 
 export const getContent = (token) => {
@@ -52,7 +45,7 @@ export const getContent = (token) => {
   })
   .then((res) => res.json())
   .then((data) => {
-    console.log(data);
     return data;
   })
+  .catch(err => console.error(err));
 };

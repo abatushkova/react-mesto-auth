@@ -1,8 +1,6 @@
 .elements__like-btn {
   width: 1.5rem;
   height: 1.5rem;
-  padding: 0;
-  border: 0;
   background-image: url(../../../images/elements/__like-btn/like.svg);
   background-color: transparent;
   background-repeat: no-repeat;

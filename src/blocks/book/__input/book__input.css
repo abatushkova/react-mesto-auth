@@ -2,11 +2,25 @@
   width: 100%;
   padding: .5rem 0;
   margin-bottom: 1.5rem;
-  border: 0;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   border-bottom: 2px solid #ccc;
   background-color: transparent;
   color: #fff;
-  font: 14px/17px "InterMedium", Arial, sans-serif;
-  font-weight: 500;
+  font: 14px/17px 'InterMedium', Arial, sans-serif;
+}
+
+.book__input::-webkit-input-placeholder,
+.book__input::-moz-placeholder,
+.book__input:-ms-input-placeholder,
+.book__input::-ms-input-placeholder {
+  color: #ccc;
+  font-family: 'Inter';
+  opacity: 1;
+}
+
+.book__input::placeholder {
+  color: #ccc;
+  font-family: 'Inter';
+  opacity: 1;
 }

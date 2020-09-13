@@ -1,3 +1,5 @@
+@import './__profile/container__profile.css';
+
 .container {
   margin: 2.625rem auto 0;
 }

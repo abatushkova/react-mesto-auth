@@ -1,9 +1,19 @@
 .popup__info-title {
   width: 100%;
-  max-width: 22.375rem;
-  margin: 2rem auto 1.5rem;
+  max-width: 21rem;
+  margin: 2.5rem auto 1.5rem;
   color: #000;
-  font: 24px/29px "InterBlack", Arial, sans-serif;
+  font: 20px/24px "InterBlack", Arial, sans-serif;
   font-weight: 900;
   text-align: center;
 }
+
+@media screen and (min-width: 768px) {
+  .popup__info-title {
+    max-width: none;
+    margin-top: 2rem;
+    font-size: 24px;
+    line-height: 29px;
+  }
+}
+

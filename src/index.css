@@ -10,7 +10,6 @@
 @import './blocks/footer/footer.css';
 @import './blocks/popup/popup.css';
 @import './blocks/popup/_type/popup_type_img.css';
-@import './blocks/popup/_type/popup_type_info.css';
 @import './blocks/popup/_opened/popup_opened.css';
 @import './blocks/menu/menu.css';
 @import './blocks/book/book.css';

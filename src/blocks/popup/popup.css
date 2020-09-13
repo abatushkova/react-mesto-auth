@@ -1,4 +1,5 @@
 @import './__container/popup__container.css';
+@import './__container/_type/popup__container_type_info.css';
 @import './__title/popup__title.css';
 @import './__label/popup__label.css';
 @import './__input/popup__input.css';
