@@ -5,14 +5,12 @@ export const register = ({ password, email }) => {
     method: 'POST',
     headers: {
       'Accept': 'application/json',
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
     },
-    body: JSON.stringify({password, email})
+    body: JSON.stringify({ password, email }),
   })
-  .then((res) => {
-    return res;
-  })
-  .catch((err) => console.error(err));
+    .then((res) => res)
+    .catch((err) => console.error(err));
 };
 
 export const login = ({ email, password }) => {
@@ -20,18 +18,19 @@ export const login = ({ email, password }) => {
     method: 'POST',
     headers: {
       'Accept': 'application/json',
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
     },
-    body: JSON.stringify({email, password})
+    body: JSON.stringify({ email, password }),
   })
-  .then((res) => res.json())
-  .then((data) => {
-    if (data.token) {
-      localStorage.setItem('token', data.token);
-      return data;
-    }
-  })
-  .catch(err => console.error(err));
+    .then((res) => res.json())
+    .then((data) => {
+      if (data.token) {
+        localStorage.setItem('token', data.token);
+
+        return data;
+      }
+    })
+    .catch((err) => console.error(err));
 };
 
 export const getContent = (token) => {
@@ -41,11 +40,9 @@ export const getContent = (token) => {
       'Accept': 'application/json',
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${token}`,
-    }
+    },
   })
-  .then((res) => res.json())
-  .then((data) => {
-    return data;
-  })
-  .catch(err => console.error(err));
+    .then((res) => res.json())
+    .then((data) => data)
+    .catch((err) => console.error(err));
 };

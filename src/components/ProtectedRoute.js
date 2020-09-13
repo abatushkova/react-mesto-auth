@@ -11,6 +11,6 @@ const ProtectedRoute = ({ loggedIn, ...props }) => {
       }
     </Route>
   );
-}
+};
 
 export default ProtectedRoute;

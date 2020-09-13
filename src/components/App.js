@@ -3,7 +3,7 @@ import {
   Route,
   Switch,
   Redirect,
-  useHistory
+  useHistory,
 } from 'react-router-dom';
 import Header from './Header';
 import Main from './Main';
@@ -36,40 +36,33 @@ const App = () => {
   const history = useHistory();
 
   useEffect(() => {
-    let isMounted = true;
-
     if (localStorage.getItem('token')) {
-    const token = localStorage.getItem('token');
+      const token = localStorage.getItem('token');
 
-    console.log(token);
-    auth.getContent(token)
-      .then((res) => {
-        if (res && isMounted) {
-          console.log(res);
-          setEmail(res.data.email);
-          setLoggedIn(true);
-          history.push('/');
-        }
-
-        return;
-      })
-      .catch((err) => console.error(err));
+      auth.getContent(token)
+        .then((res) => {
+          if (res) {
+            console.log(res);
+            setEmail(res.data.email);
+            setLoggedIn(true);
+            history.push('/');
+          }
+        })
+        .catch((err) => console.error(err));
     }
-
-    return () => isMounted = false;
   }, [loggedIn, history]);
 
   useEffect(() => {
     api.getUserInfo()
-      .then(user => setCurrentUser(user))
-      .catch(err => console.error(err));
-  }, []);    
+      .then((user) => setCurrentUser(user))
+      .catch((err) => console.error(err));
+  }, []);
 
   useEffect(() => {
     api.getCardList()
       .then((cards) => setCards(cards))
-      .catch(err => console.error(err));
-  }, []);    
+      .catch((err) => console.error(err));
+  }, []);
 
   const onLogin = ({ email, password }) => {
     return auth.login({ email, password })
@@ -140,26 +133,26 @@ const App = () => {
 
   const handleUpdateUser = ({ name, about }) => {
     return api.setUserInfo({ name, about })
-      .then(user => {
+      .then((user) => {
         setCurrentUser(user);
         closeAllPopups();
       })
-      .catch(err => console.error(err));
+      .catch((err) => console.error(err));
   };
 
   const handleUpdateAvatar = ({ avatar }) => {
     return api.setUserAvatar({ avatar })
-      .then(user => {
+      .then((user) => {
         setCurrentUser(user);
         closeAllPopups();
       })
-      .catch(err => console.error(err));
+      .catch((err) => console.error(err));
   };
 
   const handleCardLike = (card) => {
-    const isLiked = card.likes.some(i => i._id === currentUser._id);
-    
-    api.changeCardLikeStatus(card._id, !isLiked)
+    const isLiked = card.likes.some((i) => i._id === currentUser._id);
+
+    return api.changeCardLikeStatus(card._id, !isLiked)
       .then((newCard) => {
         const newCards = cards.map((c) => (
           c._id === card._id ? newCard : c
@@ -167,11 +160,11 @@ const App = () => {
 
         setCards(newCards);
       })
-      .catch(err => console.error(err));
+      .catch((err) => console.error(err));
   };
 
   const handleCardDelete = (cardID) => {
-    api.deleteCard(cardID)
+    return api.deleteCard(cardID)
       .then((newCard) => {
         const newCards = cards.filter((c) => (
           c._id === cardID ? null : newCard
@@ -180,7 +173,7 @@ const App = () => {
         setCards(newCards);
         closeAllPopups();
       })
-      .catch(err => console.error(err));
+      .catch((err) => console.error(err));
   };
 
   const handleAddCardSubmit = ({ name, link }) => {
@@ -189,7 +182,7 @@ const App = () => {
         setCards([newCard, ...cards]);
         closeAllPopups();
       })
-      .catch(err => console.error(err));
+      .catch((err) => console.error(err));
   };
 
   if (!currentUser) return null;
@@ -266,6 +259,6 @@ const App = () => {
       <Footer />
     </div>
   );
-}
+};
 
 export default App;

@@ -9,9 +9,9 @@ const Login = ({ onLogin, isOpen, onClose, isSignup }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [infoData, setInfoData] = useState({
-    text: "Вы успешно зарегистрировались!",
-    alt: "Успешно",
-    src: success
+    text: 'Вы успешно зарегистрировались!',
+    alt: 'Успешно',
+    src: success,
   });
 
   const handleSubmit = (evt) => {
@@ -19,9 +19,9 @@ const Login = ({ onLogin, isOpen, onClose, isSignup }) => {
 
     if (!email || !password) {
       setInfoData({
-        text: "Что-то пошло не так! Попробуйте ещё раз.",
-        alt: "Ошибка",
-        src: fail
+        text: 'Что-то пошло не так! Попробуйте ещё раз.',
+        alt: 'Ошибка',
+        src: fail,
       });
     }
 
@@ -31,20 +31,18 @@ const Login = ({ onLogin, isOpen, onClose, isSignup }) => {
           setEmail('');
           setPassword('');
           setInfoData({
-            text: "Что-то пошло не так! Попробуйте ещё раз.",
-            alt: "Ошибка",
-            src: fail
-          });    
+            text: 'Что-то пошло не так! Попробуйте ещё раз.',
+            alt: 'Ошибка',
+            src: fail,
+          });
         }
-
-        return;
       })
       .catch((err) => console.error(err));
-  }
+  };
 
   return (
     <>
-      {isSignup 
+      {isSignup
         && <InfoTooltip infoData={infoData} isOpen={isOpen} onClose={onClose} />
       }
       <InfoTooltip
@@ -91,6 +89,6 @@ const Login = ({ onLogin, isOpen, onClose, isSignup }) => {
       </BookForm>
     </>
   );
-}
+};
 
 export default Login;

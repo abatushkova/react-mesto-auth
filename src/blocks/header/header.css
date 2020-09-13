@@ -1,11 +1,15 @@
 @import './__logo/header__logo.css';
+@import './__burger/header__burger.css';
+@import './__burger/_type/header__burger_type_close.css';
+@import './__burger/_hidden/header__burger_hidden.css';
+@import './__handler/header__handler.css';
+@import './__link/header__link.css';
 
 .header {
   display: flex;
-  flex-flow: row wrap;
-  align-items: flex-end;
+  flex-flow: column wrap;
   justify-content: space-between;
-  padding: 1.75rem 1.6875rem 2rem;
+  padding: 1.75rem 0 2rem;
   box-sizing: border-box;
   border-bottom: 1px solid rgba(84, 84, 84, .7);
   font-size: 0;
@@ -19,6 +23,8 @@
 
 @media screen and (min-width: 768px) {
   .header {
+    flex-direction: row-reverse;
+    align-items: flex-end;
     padding: 2.8125rem 0 2.5rem;
     margin: 0 auto;
   }

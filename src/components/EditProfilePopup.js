@@ -11,12 +11,12 @@ function EditProfilePopup(props) {
   const [nameError, setNameError] = useState({
     inputClass: '',
     errorClass: '',
-    errorMsg: ''
+    errorMsg: '',
   });
   const [descriptionError, setDescriptionError] = useState({
     inputClass: '',
     errorClass: '',
-    errorMsg: ''
+    errorMsg: '',
   });
   const [isFormValid, setIsFormValid] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
@@ -34,14 +34,14 @@ function EditProfilePopup(props) {
       setNameError({
         inputClass: 'popup__input_type_error',
         errorClass: 'popup__error_visible',
-        errorMsg: input.validationMessage
+        errorMsg: input.validationMessage,
       });
       setIsFormValid(false);
     } else {
       setNameError({
         inputClass: '',
         errorClass: '',
-        errorMsg: ''
+        errorMsg: '',
       });
       setIsFormValid(true);
     }
@@ -55,14 +55,14 @@ function EditProfilePopup(props) {
       setDescriptionError({
         inputClass: 'popup__input_type_error',
         errorClass: 'popup__error_visible',
-        errorMsg: input.validationMessage
+        errorMsg: input.validationMessage,
       });
       setIsFormValid(false);
     } else {
       setDescriptionError({
         inputClass: '',
         errorClass: '',
-        errorMsg: ''
+        errorMsg: '',
       });
       setIsFormValid(true);
     }
@@ -74,12 +74,12 @@ function EditProfilePopup(props) {
 
     props.onUpdateUser({
       name,
-      about: description
+      about: description,
     })
-    .finally(() => {
-      setIsFormValid(true);
-      setIsLoading(false);
-    });
+      .finally(() => {
+        setIsFormValid(true);
+        setIsLoading(false);
+      });
   };
 
   const handleClose = () => {
@@ -91,12 +91,12 @@ function EditProfilePopup(props) {
     setNameError({
       inputClass: '',
       errorClass: '',
-      errorMsg: ''
+      errorMsg: '',
     });
     setDescriptionError({
       inputClass: '',
       errorClass: '',
-      errorMsg: ''
+      errorMsg: '',
     });
   };
 

@@ -18,7 +18,7 @@ function InfoTooltip({ infoData, isOpen, onClose }) {
           <ButtonClose closeHandler={onClose} />
         </PopupContainer>
       </div>
-    : <div className={`popup popup_type_info`}></div>
+    : <div className={'popup popup_type_info'}></div>
   );
 }
 

@@ -23,13 +23,13 @@ const Register = ({ onRegister, isOpen, onClose }) => {
         setEmail('');
         setPassword('');
         setInfoData({
-          text: "Что-то пошло не так! Попробуйте ещё раз.",
-          alt: "Ошибка",
-          src: fail
+          text: 'Что-то пошло не так! Попробуйте ещё раз.',
+          alt: 'Ошибка',
+          src: fail,
         });
       })
       .catch((err) => console.error(err));
-  }
+  };
 
   return (
     <>
@@ -74,6 +74,6 @@ const Register = ({ onRegister, isOpen, onClose }) => {
       </BookForm>
     </>
   );
-}
+};
 
 export default Register;

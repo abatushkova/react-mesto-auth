@@ -13,7 +13,7 @@ class EditAvatarPopup extends React.Component {
       errorClass: '',
       errorMsg: '',
       isFormValid: false,
-      isLoading: false
+      isLoading: false,
     };
   }
 
@@ -67,7 +67,7 @@ class EditAvatarPopup extends React.Component {
     this.setState({
       inputClass: 'popup__input_type_error',
       errorClass: 'popup__error_visible',
-      errorMsg: avatar.validationMessage
+      errorMsg: avatar.validationMessage,
     });
   }
 
@@ -75,7 +75,7 @@ class EditAvatarPopup extends React.Component {
     this.setState({
       inputClass: '',
       errorClass: '',
-      errorMsg: ''
+      errorMsg: '',
     });
   }
 
@@ -90,15 +90,15 @@ class EditAvatarPopup extends React.Component {
     this.setState({ isLoading: true });
 
     this.props.onUpdateAvatar({
-      avatar: this.avatar.current.value
+      avatar: this.avatar.current.value,
     })
-    .finally(() => {
-      this.setState({
-        isFormValid: false,
-        isLoading: false
+      .finally(() => {
+        this.setState({
+          isFormValid: false,
+          isLoading: false,
+        });
+        this.hideInputError();
       });
-      this.hideInputError();
-    });
   }
 }
 

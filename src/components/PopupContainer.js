@@ -10,12 +10,12 @@ function PopupContainer(props) {
     return () => {
       document.removeEventListener('click', handleClick, false);
       document.removeEventListener('keydown', handleEsc, false);
-    }
+    };
   });
 
   const handleClick = (evt) => {
     if (
-      popupContainer.current 
+      popupContainer.current
       && !popupContainer.current.contains(evt.target)
     ) {
       props.closeHandler();

@@ -12,4 +12,5 @@
 @import './blocks/popup/_type/popup_type_img.css';
 @import './blocks/popup/_opened/popup_opened.css';
 @import './blocks/menu/menu.css';
+@import './blocks/menu/_opened/menu_opened.css';
 @import './blocks/book/book.css';

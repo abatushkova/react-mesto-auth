@@ -1,4 +1,4 @@
-class Api  {
+class Api {
   constructor(options) {
     this._baseUrl = options.baseUrl;
     this._headers = options.headers;
@@ -8,26 +8,26 @@ class Api  {
     return fetch(this._baseUrl + url, {
       ...params,
       headers: this._headers,
-      body: JSON.stringify(params.body)
+      body: JSON.stringify(params.body),
     })
-    .then(response => {
-      if (response.ok) {
-        return response.json();
-      }
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        }
 
-      return Promise.reject(`Ошибка: ${response.status}`);
-    });
+        return Promise.reject(`Ошибка: ${response.status}`);
+      });
   }
 
   getUserInfo() {
     return this._fetch('/users/me', {
-      method: 'GET'
+      method: 'GET',
     });
   }
 
   getCardList() {
     return this._fetch('/cards', {
-      method: 'GET'
+      method: 'GET',
     });
   }
 
@@ -36,20 +36,20 @@ class Api  {
       method: 'POST',
       body: {
         name,
-        link
-      }
+        link,
+      },
     });
   }
 
   changeCardLikeStatus(cardID, like) {
     return this._fetch('/cards/likes/' + cardID, {
-      method: like ? 'PUT' : 'DELETE'
+      method: like ? 'PUT' : 'DELETE',
     });
   }
 
   deleteCard(cardID) {
     return this._fetch('/cards/' + cardID, {
-      method: 'DELETE'
+      method: 'DELETE',
     });
   }
 
@@ -58,8 +58,8 @@ class Api  {
       method: 'PATCH',
       body: {
         name,
-        about
-      }
+        about,
+      },
     });
   }
 
@@ -67,8 +67,8 @@ class Api  {
     return this._fetch('/users/me/avatar', {
       method: 'PATCH',
       body: {
-        avatar
-      }
+        avatar,
+      },
     });
   }
 }
@@ -77,6 +77,6 @@ export const api = new Api({
   baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-12',
   headers: {
     authorization: 'bd0f2499-7585-4f83-9366-da3fa3857f94',
-    'Content-Type': 'application/json'
-  }
+    'Content-Type': 'application/json',
+  },
 });

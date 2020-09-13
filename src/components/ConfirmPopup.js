@@ -3,7 +3,7 @@ import PopupWithForm from './PopupWithForm';
 import ButtonSubmit from './ButtonSubmit';
 
 function ConfirmPopup(props) {
-  const {card} = props;
+  const { card } = props;
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
