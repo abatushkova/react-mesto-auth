@@ -42,7 +42,6 @@ const App = () => {
       auth.getContent(token)
         .then((res) => {
           if (res) {
-            console.log(res);
             setEmail(res.data.email);
             setLoggedIn(true);
             history.push('/');
