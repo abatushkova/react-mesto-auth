@@ -23,6 +23,3 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ## Credits
 Alena Batushkova - junior web developer
-
-## Links
-[Mesto app](https://abatushkova.github.io/react-mesto-auth)
