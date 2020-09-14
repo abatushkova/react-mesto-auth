@@ -1,0 +1,11 @@
+.popup__error {
+  display: block;
+  min-height: 1rem;
+  margin-top: .25rem;
+  color: #ff0000;
+  font: 12px/15px 'Inter', Arial, sans-serif;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .15s linear 0s,
+          visibility .15s linear 0s;
+}

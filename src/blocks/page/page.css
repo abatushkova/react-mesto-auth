@@ -1,0 +1,7 @@
+@import './__content/page__content.css';
+@import './__section/page__section.css';
+@import './__loader/page__loader.css';
+
+.page {
+  background-color: #000;
+}
