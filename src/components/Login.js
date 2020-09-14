@@ -69,8 +69,6 @@ const Login = ({ onLogin, isOpen, onClose, isSignup }) => {
             value={email}
             onChange={(evt) => setEmail(evt.target.value)}
             required={true}
-            minLength={2}
-            pattern="[a-zA-Z0-9\_\-\.\@]+"
           />
         </label>
         <label className="book__label" htmlFor="password">
@@ -83,7 +81,6 @@ const Login = ({ onLogin, isOpen, onClose, isSignup }) => {
             value={password}
             onChange={(evt) => setPassword(evt.target.value)}
             required={true}
-            minLength={8}
           />
         </label>
       </BookForm>
