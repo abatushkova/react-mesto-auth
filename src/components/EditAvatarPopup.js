@@ -45,7 +45,7 @@ class EditAvatarPopup extends React.Component {
           </span>
         </label>
         <ButtonSubmit isDisabled={!this.state.isFormValid}>
-          {this.state.isLoading ? 'Загрузка...' : 'Сохранить'}
+          {this.state.isLoading ? ('Загрузка...') : ('Сохранить')}
         </ButtonSubmit>
       </PopupWithForm>
     );

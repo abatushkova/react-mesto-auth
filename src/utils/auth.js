@@ -9,7 +9,8 @@ export const register = ({ password, email }) => {
     },
     body: JSON.stringify({ password, email }),
   })
-    .then((res) => res)
+    .then((res) => res.json())
+    .then((data) => data)
     .catch((err) => console.error(err));
 };
 
@@ -33,7 +34,7 @@ export const login = ({ email, password }) => {
     .catch((err) => console.error(err));
 };
 
-export const getContent = (token) => {
+export const checkToken = (token) => {
   return fetch(`${BASE_URL}/users/me`, {
     method: 'GET',
     headers: {

@@ -5,7 +5,8 @@ import InfoTooltip from './InfoTooltip';
 import fail from '../images/popup/__info-sign/fail.svg';
 import success from '../images/popup/__info-sign/success.svg';
 
-const Login = ({ onLogin, isOpen, onClose, isSignup }) => {
+const Login = (props) => {
+  const { onLogin, isTooltipOpen, onTooltipClose } = props;
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [infoData, setInfoData] = useState({
@@ -14,15 +15,19 @@ const Login = ({ onLogin, isOpen, onClose, isSignup }) => {
     src: success,
   });
 
+  const renderErrorMsg = () => (
+    setInfoData({
+      text: 'Что-то пошло не так! Попробуйте ещё раз.',
+      alt: 'Ошибка',
+      src: fail,
+    })
+  );
+
   const handleSubmit = (evt) => {
     evt.preventDefault();
 
     if (!email || !password) {
-      setInfoData({
-        text: 'Что-то пошло не так! Попробуйте ещё раз.',
-        alt: 'Ошибка',
-        src: fail,
-      });
+      renderErrorMsg();
     }
 
     onLogin({ email, password })
@@ -30,11 +35,7 @@ const Login = ({ onLogin, isOpen, onClose, isSignup }) => {
         if (!res) {
           setEmail('');
           setPassword('');
-          setInfoData({
-            text: 'Что-то пошло не так! Попробуйте ещё раз.',
-            alt: 'Ошибка',
-            src: fail,
-          });
+          renderErrorMsg();
         }
       })
       .catch((err) => console.error(err));
@@ -42,13 +43,10 @@ const Login = ({ onLogin, isOpen, onClose, isSignup }) => {
 
   return (
     <>
-      {isSignup
-        && <InfoTooltip infoData={infoData} isOpen={isOpen} onClose={onClose} />
-      }
       <InfoTooltip
         infoData={infoData}
-        isOpen={isOpen}
-        onClose={onClose}
+        isOpen={isTooltipOpen}
+        onClose={onTooltipClose}
       />
       <Header link="Регистрация" path="/signup" />
       <BookForm

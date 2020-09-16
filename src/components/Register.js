@@ -5,7 +5,8 @@ import Header from './Header';
 import InfoTooltip from './InfoTooltip';
 import fail from '../images/popup/__info-sign/fail.svg';
 
-const Register = ({ onRegister, isOpen, onClose }) => {
+const Register = (props) => {
+  const { onRegister, isTooltipOpen, onTooltipClose } = props;
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [infoData, setInfoData] = useState({});
@@ -35,8 +36,8 @@ const Register = ({ onRegister, isOpen, onClose }) => {
     <>
       <InfoTooltip
         infoData={infoData}
-        isOpen={isOpen}
-        onClose={onClose}
+        isOpen={isTooltipOpen}
+        onClose={onTooltipClose}
       />
       <Header link="Войти" path="/signin" />
       <BookForm

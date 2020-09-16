@@ -1,24 +1,55 @@
-.header__burger {
+.header__burger{
+  position: relative;
   display: block;
-  width: 2rem;
-  height: 2rem;
-  background-image: url(../../../images/header/__burger/burger.svg);
-  background-color: transparent;
-  background-repeat: no-repeat;
-  background-size: 22px 18px;
-  background-position: center center;
-  opacity: 1;
-  transition: opacity .1s cubic-bezier(0,0,.2,1) 0s;
-  will-change: opacity;
-  cursor: pointer;
+  width: 24px;
+  height: 3px;
+  background-color: #fff;
+  transition: background-color .2s ease-out 0s;
 }
 
-.header__burger:focus,
-.header__burger:hover {
+.header__burger::before,
+.header__burger::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  transition: all .2s ease-out;
+}
+
+.header__burger::before {
+  top: 8px;
+}
+
+.header__burger::after {
+  top: -8px;
+}
+
+.header__burger-checkbox:checked ~ .header__burger-icon .header__burger {
+  background-color: transparent;
+}
+
+.header__burger-checkbox:checked ~ .header__burger-icon .header__burger::before {
+  transform: rotate(-45deg);
+}
+
+.header__burger-checkbox:checked ~ .header__burger-icon .header__burger::after {
+  transform: rotate(45deg);
+}
+
+.header__burger-checkbox:checked ~ .header__burger-icon:not(.steps) .header__burger::before,
+.header__burger-checkbox:checked ~ .header__burger-icon:not(.steps) .header__burger::after {
+  top: 0;
+}
+
+.header__burger-icon:focus .header__burger,
+.header__burger-icon:hover .header__burger {
   opacity: .6;
 }
 
-.header__burger:active {
+.header__burger-icon:active .header__burger {
   opacity: .4;
 }
 

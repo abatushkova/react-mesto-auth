@@ -2,9 +2,14 @@ import React, { useContext } from 'react';
 import { CurrentUserContext } from '../contexts/CurrentUserContext';
 
 function Card(props) {
-  const {card} = props;
+  const {
+    card,
+    onCardClick,
+    onCardLike,
+    onCardDelete
+  } = props;
   const currentUser = useContext(CurrentUserContext);
-  
+
   const isLiked = card.likes.some(i => i._id === currentUser._id);
 
   const cardLikeBtnClassName = (
@@ -12,19 +17,25 @@ function Card(props) {
   );
 
   const handleClick = () => {
-    props.onCardClick(card);
-  };
-  const handleLikeClick = () => {
-    props.onCardLike(card);
-  };
-  const handleDeleteClick = () => {
-    props.onCardDelete(card);
+    onCardClick(card);
   };
 
-  const buttonDelete = (card.owner._id === currentUser._id)
-  && <button type="button" 
-    className="elements__delete-btn" title="Удалить" 
-    onClick={handleDeleteClick}></button>;
+  const handleLikeClick = () => {
+    onCardLike(card);
+  };
+
+  const handleDeleteClick = () => {
+    onCardDelete(card);
+  };
+
+  const buttonDelete = (card.owner._id === currentUser._id) && (
+    <button
+      type="button" 
+      className="elements__delete-btn"
+      title="Удалить" 
+      onClick={handleDeleteClick}
+    ></button>
+  );
 
   return (
     <div className="elements__item">

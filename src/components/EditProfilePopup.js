@@ -4,8 +4,8 @@ import ButtonSubmit from './ButtonSubmit';
 import { CurrentUserContext } from '../contexts/CurrentUserContext';
 
 function EditProfilePopup(props) {
+  const { isOpen, onClose, onUpdateUser } = props;
   const currentUser = useContext(CurrentUserContext);
-
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
   const [nameError, setNameError] = useState({
@@ -72,7 +72,7 @@ function EditProfilePopup(props) {
     evt.preventDefault();
     setIsLoading(true);
 
-    props.onUpdateUser({
+    onUpdateUser({
       name,
       about: description,
     })
@@ -83,7 +83,7 @@ function EditProfilePopup(props) {
   };
 
   const handleClose = () => {
-    props.onClose();
+    onClose();
 
     setName(currentUser.name);
     setDescription(currentUser.about);
@@ -104,7 +104,7 @@ function EditProfilePopup(props) {
     <PopupWithForm
       name="profile"
       title="Редактировать профиль"
-      isOpen={props.isOpen}
+      isOpen={isOpen}
       onClose={handleClose}
       onSubmit={handleSubmit}
     >
@@ -150,7 +150,7 @@ function EditProfilePopup(props) {
         </span>
       </label>
       <ButtonSubmit isDisabled={!isFormValid}>
-        {isLoading ? 'Загрузка...' : 'Сохранить'}
+        {isLoading ? ('Загрузка...') : ('Сохранить')}
       </ButtonSubmit>
     </PopupWithForm>
   );

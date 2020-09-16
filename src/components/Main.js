@@ -4,46 +4,59 @@ import { CurrentUserContext } from '../contexts/CurrentUserContext';
 
 function Main(props) {
   const currentUser = useContext(CurrentUserContext);
+  const {
+    onEditAvatar,
+    onEditProfile,
+    onAddCard,
+    onCardClick,
+    cards,
+    onCardLike,
+    onCardDelete,
+  } = props;
 
   return (
     <main className="container page__section">
       <section className="profile container__profile">
         <div className="profile__avatar">
-          <img src={currentUser.avatar}
+          <img
+            src={currentUser.avatar}
             alt={currentUser.name}
             className="profile__img"
           />
-          <button type="button"
+          <button
+            type="button"
             className="profile__update-av-btn"
             title="Сменить аватар"
-            onClick={props.onEditAvatar}>
+            onClick={onEditAvatar}>
           </button>
         </div>
         <div className="profile__details">
           <h1 className="profile__name">{currentUser.name}</h1>
-          <button type="button"
+          <button
+            type="button"
             className="profile__edit-btn"
             title="Редактировать профиль"
-            onClick={props.onEditProfile}>
+            onClick={onEditProfile}>
           </button>
           <p className="profile__info">{currentUser.about}</p>
         </div>
-        <button type="button"
+        <button
+          type="button"
           className="profile__add-btn"
           title="Добавить фотографию"
-          onClick={props.onAddCard}>
+          onClick={onAddCard}>
         </button>
       </section>
       <section className="elements">
-        {props.cards.map((card) => {
-          return <Card
+        {cards.map((card) => (
+          <Card
             key={card._id}
             card={card}
-            onCardLike={props.onCardLike}
-            onCardClick={props.onCardClick}
-            onCardDelete={props.onCardDelete}
+            onCardLike={onCardLike}
+            onCardClick={onCardClick}
+            onCardDelete={onCardDelete}
           />
-        })}
+        ))}
       </section>
     </main>
   );

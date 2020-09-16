@@ -75,7 +75,7 @@ class AddCardPopup extends React.Component {
           </span>
         </label>
         <ButtonSubmit isDisabled={!this.state.isFormValid}>
-          {this.state.isLoading ? 'Загрузка...' : 'Создать'}
+          {this.state.isLoading ? ('Загрузка...') : ('Создать')}
         </ButtonSubmit>
       </PopupWithForm>
     );

@@ -3,7 +3,7 @@ import PopupWithForm from './PopupWithForm';
 import ButtonSubmit from './ButtonSubmit';
 
 function ConfirmPopup(props) {
-  const { card } = props;
+  const { card, isOpen, onClose } = props;
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
@@ -15,8 +15,8 @@ function ConfirmPopup(props) {
     <PopupWithForm
       name="confirm"
       title="Вы уверены?"
-      isOpen={props.isOpen}
-      onClose={props.onClose}
+      isOpen={isOpen}
+      onClose={onClose}
       onSubmit={handleSubmit}
     >
       <ButtonSubmit>Да</ButtonSubmit>
