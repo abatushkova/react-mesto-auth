@@ -1,6 +1,6 @@
 .menu__item {
   color: #fff;
-  font: 18px/1 "Inter",Arial,sans-serif;
+  font: 18px/1 "Inter", Arial, sans-serif;
 }
 
 @media screen and (min-width: 768px) {

@@ -1,7 +1,7 @@
 .header__link {
   position: absolute;
-  top: 2.5rem;
-  right: 1.6875rem;
+  bottom: 2rem;
+  right: 1.875rem;
   font: 14px/1 'Inter', Arial, sans-serif;
   color: #fff;
   text-decoration: none;
@@ -20,6 +20,5 @@
   .header__link {
     position: static;
     font-size: 18px;
-    line-height: 22px;
   }
 }

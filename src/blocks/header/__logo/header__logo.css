@@ -1,6 +1,7 @@
 .header__logo {
   width: 6.4375rem;
   height: 1.5rem;
+  margin-left: 1.875rem;
   object-fit: cover;
   object-position: 0 0;
 }
@@ -9,5 +10,6 @@
   .header__logo {
     width: 8.875rem;
     height: 2.0625rem;
+    margin-left: 0;
   }
 }

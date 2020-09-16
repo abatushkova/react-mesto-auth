@@ -2,31 +2,59 @@
 @import './__button/menu__button.css';
 
 .menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-flow: column nowrap;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  visibility: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   width: 100%;
-  border-bottom: 1px solid rgba(84, 84, 84, .7);
   height: auto;
   max-height: 0;
-  transition: max-height .12s ease-in-out 0s,
-    opacity .12s ease-in-out 0s,
-    visibility .12s ease-in-out 0s;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: all .12s ease-out 0s;
+  -o-transition: all .12s ease-out 0s;
+  transition: all .12s ease-out 0s;
   will-change: opacity;
+}
+
+.header__burger-checkbox:checked ~ .menu {
+  max-height: 129px;
+  padding-top: .75rem;
+  padding-bottom: 2.5rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(84, 84, 84, .7);
+  opacity: 1;
+  visibility: visible;
+  -webkit-transition: all .25s ease-out 0s;
+  -o-transition: all .25s ease-out 0s;
+  transition: all .25s ease-out 0s;
 }
 
 @media screen and (min-width: 768px) {
   .menu {
-    opacity: 1;
-    visibility: visible;
-    flex-direction: row;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
     width: auto;
     max-height: none;
-    margin: 0;
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .header__burger-checkbox:checked ~ .menu {
+    max-height: none;
     padding: 0;
+    margin: 0;
     border: 0;
   }
 }

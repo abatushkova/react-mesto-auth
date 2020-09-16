@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 
 function PopupContainer(props) {
+  const { closeHandler, className, children } = props;
   const popupContainer = useRef(null);
 
   useEffect(() => {
@@ -18,19 +19,19 @@ function PopupContainer(props) {
       popupContainer.current
       && !popupContainer.current.contains(evt.target)
     ) {
-      props.closeHandler();
+      closeHandler();
     }
   };
 
   const handleEsc = (evt) => {
     if (evt.key && evt.key === 'Escape') {
-      props.closeHandler();
+      closeHandler();
     }
   };
 
   return (
-    <div className={props.className} ref={popupContainer}>
-      {props.children}
+    <div className={className} ref={popupContainer}>
+      {children}
     </div>
   );
 }

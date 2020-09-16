@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import {
   Route,
   Switch,
-  Redirect,
   useHistory,
 } from 'react-router-dom';
 import Header from './Header';
@@ -13,12 +12,12 @@ import EditAvatarPopup from './EditAvatarPopup';
 import AddCardPopup from './AddCardPopup';
 import ConfirmPopup from './ConfirmPopup';
 import ImagePopup from './ImagePopup';
-import * as auth from '../utils/auth';
-import { api } from '../utils/api';
-import { CurrentUserContext } from '../contexts/CurrentUserContext';
 import ProtectedRoute from './ProtectedRoute';
 import Login from './Login';
 import Register from './Register';
+import * as auth from '../utils/auth';
+import { api } from '../utils/api';
+import { CurrentUserContext } from '../contexts/CurrentUserContext';
 
 const App = () => {
   const [currentUser, setCurrentUser] = useState(null);
@@ -32,34 +31,29 @@ const App = () => {
   const [cards, setCards] = useState([]);
   const [loggedIn, setLoggedIn] = useState(false);
   const [email, setEmail] = useState('');
-  const [isSignup, setIsSignup] = useState(false);
   const history = useHistory();
-
+  
   useEffect(() => {
-    if (localStorage.getItem('token')) {
-      const token = localStorage.getItem('token');
+    Promise.all([
+      localStorage.getItem('token'),
+      api.getUserInfo(),
+      api.getCardList(),    
+    ])
+      .then(([token, user, cards]) => {
+        if (token) {
+          auth.checkToken(token)
+            .then((res) => {
+              if (res) {
+                setEmail(res.data.email);
+                setLoggedIn(true);
+                history.push('/');
+              }
+            });
+        }
 
-      auth.getContent(token)
-        .then((res) => {
-          if (res) {
-            setEmail(res.data.email);
-            setLoggedIn(true);
-            history.push('/');
-          }
-        })
-        .catch((err) => console.error(err));
-    }
-  }, [loggedIn, history]);
-
-  useEffect(() => {
-    api.getUserInfo()
-      .then((user) => setCurrentUser(user))
-      .catch((err) => console.error(err));
-  }, []);
-
-  useEffect(() => {
-    api.getCardList()
-      .then((cards) => setCards(cards))
+        setCurrentUser(user);
+        setCards(cards);    
+      })
       .catch((err) => console.error(err));
   }, []);
 
@@ -67,13 +61,14 @@ const App = () => {
     return auth.login({ email, password })
       .then((res) => {
         if (res && res.token) {
+          setEmail(email);
           setLoggedIn(true);
           history.push('/');
           return true;
         }
 
         setIsInfoTooltipOpen(true);
-        return false;
+        return Promise.reject(new Error('on Sign in'));
       })
       .catch((err) => console.error(err));
   };
@@ -81,14 +76,14 @@ const App = () => {
   const onRegister = ({ email, password }) => {
     return auth.register({ email, password })
       .then((res) => {
-        if (res.status !== 400) {
-          setIsSignup(true);
+        if (res.data) {
+          setEmail(res.data.email);
           setIsInfoTooltipOpen(true);
           return true;
         }
 
         setIsInfoTooltipOpen(true);
-        return false;
+        return Promise.reject(new Error('on Sign up'));
       })
       .catch((err) => console.error(err));
   };
@@ -238,21 +233,17 @@ const App = () => {
         </ProtectedRoute>
         <Route path="/signin">
           <Login
-            isSignup={isSignup}
             onLogin={onLogin}
-            isOpen={isInfoTooltipOpen}
-            onClose={closeAllPopups}
+            isTooltipOpen={isInfoTooltipOpen}
+            onTooltipClose={closeAllPopups}
           />
         </Route>
         <Route path="/signup">
           <Register
             onRegister={onRegister}
-            isOpen={isInfoTooltipOpen}
-            onClose={closeAllPopups}
+            isTooltipOpen={isInfoTooltipOpen}
+            onTooltipClose={closeAllPopups}
           />
-        </Route>
-        <Route>
-          {loggedIn ? <Redirect to="/" /> : <Redirect to="/signin" />}
         </Route>
       </Switch>
       <Footer />
