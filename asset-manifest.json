@@ -1,26 +1,26 @@
 {
   "files": {
-    "main.css": "./static/css/main.9cbac37f.chunk.css",
-    "main.js": "./static/js/main.8f425886.chunk.js",
-    "main.js.map": "./static/js/main.8f425886.chunk.js.map",
-    "runtime-main.js": "./static/js/runtime-main.04ac7d5c.js",
-    "runtime-main.js.map": "./static/js/runtime-main.04ac7d5c.js.map",
-    "static/js/2.619b59b9.chunk.js": "./static/js/2.619b59b9.chunk.js",
-    "static/js/2.619b59b9.chunk.js.map": "./static/js/2.619b59b9.chunk.js.map",
-    "index.html": "./index.html",
-    "precache-manifest.d06d25b89572abe3db6430533ad1f8eb.js": "./precache-manifest.d06d25b89572abe3db6430533ad1f8eb.js",
-    "service-worker.js": "./service-worker.js",
-    "static/css/main.9cbac37f.chunk.css.map": "./static/css/main.9cbac37f.chunk.css.map",
-    "static/js/2.619b59b9.chunk.js.LICENSE.txt": "./static/js/2.619b59b9.chunk.js.LICENSE.txt",
-    "static/media/index.css": "./static/media/update-av.29219a02.svg",
-    "static/media/fail.svg": "./static/media/fail.4072126c.svg",
-    "static/media/logo.svg": "./static/media/logo.5746c0f0.svg",
-    "static/media/success.svg": "./static/media/success.e38b395c.svg"
+    "main.css": "/static/css/main.114a87bc.chunk.css",
+    "main.js": "/static/js/main.aac71a59.chunk.js",
+    "main.js.map": "/static/js/main.aac71a59.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.7936ae70.js",
+    "runtime-main.js.map": "/static/js/runtime-main.7936ae70.js.map",
+    "static/js/2.619b59b9.chunk.js": "/static/js/2.619b59b9.chunk.js",
+    "static/js/2.619b59b9.chunk.js.map": "/static/js/2.619b59b9.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.038c9b64e5cf8bbec05b7874bc84a564.js": "/precache-manifest.038c9b64e5cf8bbec05b7874bc84a564.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/main.114a87bc.chunk.css.map": "/static/css/main.114a87bc.chunk.css.map",
+    "static/js/2.619b59b9.chunk.js.LICENSE.txt": "/static/js/2.619b59b9.chunk.js.LICENSE.txt",
+    "static/media/index.css": "/static/media/update-av.29219a02.svg",
+    "static/media/fail.svg": "/static/media/fail.4072126c.svg",
+    "static/media/logo.svg": "/static/media/logo.5746c0f0.svg",
+    "static/media/success.svg": "/static/media/success.e38b395c.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.04ac7d5c.js",
+    "static/js/runtime-main.7936ae70.js",
     "static/js/2.619b59b9.chunk.js",
-    "static/css/main.9cbac37f.chunk.css",
-    "static/js/main.8f425886.chunk.js"
+    "static/css/main.114a87bc.chunk.css",
+    "static/js/main.aac71a59.chunk.js"
   ]
 }
