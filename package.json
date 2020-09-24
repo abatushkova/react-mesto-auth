@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "An educational project for ya.praktikum",
   "private": true,
-  "homepage": ".",
+  "homepage": "https://abatushkova.github.io/react-mesto-auth",
   "author": "Alena Batushkova",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
